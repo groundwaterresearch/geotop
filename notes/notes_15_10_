@@ -1,0 +1,23 @@
+
+
+
+% Reviewing geotop source code
+
+k_thermal defined at energy.balance.cc
+
+
+TIME_LOOP defined at geotop.cc
+time_loop is the function that controls temporal evolution
+
+* at geotop.cc line 323 seems to solve energy balanace, water balance and it seems like the obvious place to integrate air balance.
+
+* EnergyBalance is the function that should be modified to integrate air heat contribution due to convection
+
+* at geotop.cc the changes seem to be reduced to modify EnergyBalance to integrate air ant then after water_balance, solve air_balance.
+* air_balance (to be impplemented) it should be something analogous to water_balance
+
+* water_balance: solves superficial flow up to half time step, then Richards and then superficial flow in the second half of the time step. (see water.balance.cc)
+
+* At energy.balance.cc, review function SolvePointEnergyBalance it seems to be the base function for integrating/solving the air energy balance.
+
+* At struct.geotop.cc there are some definitions regarding ENERGY
