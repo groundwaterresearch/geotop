@@ -1,0 +1,106 @@
+% Meeting with Endrizzi
+% 
+ 
+% Stefan, interest in 
+- integrating air convection 
+- soil compressibility
+
+% Natural convection in talus slopes
+% During winter, exterior temperature is smaller than interior
+% During summer, exterior temperature is higher  than interior
+
+% Debris covered landform, air flux is relevant
+
+% It is possible to assume a REV for air phase 
+% Van genutchen, permeability for air, permeabilty for water
+
+% In terms of equations is paractically the same that using Richards for water
+
+% Density variations are only relevant in Darcy equation
+% Density is variable and is a function of temperature
+% Similar to current geotop with richards 
+
+% For energy, would be the same than today, plus an additional term for air
+
+% Time loop, solves energy balance, water balance until convergence
+% An idea is to introduce the air balance within the time loop 
+
+% Fluids are related by means of permeability
+% But they can be solved independently
+% More water means less air
+
+% From air perspective, poroisty might change
+% Total water content is water plus ice 
+
+% Currently there is no convection of water in energy balance 
+% At large scale is not important for water 
+% But the idea is to introduce air convection
+
+% Geotop does not compute convergence between air and energy 
+
+% Water movement is considering constant energy
+% Compute water and then energy independently
+
+% Is this approach suitable ?
+% 
+
+% Water flow in 1D is very limited according to Endrizzi
+% He thinks that lateral effects could be important, only vertical flow might be unphysical
+% 
+
+% Add another state variable, for air temperature
+% The assumption is that the temperautre is uniform within the REV, that means, that each phase has the same temperature
+% That is valid when water is slow
+
+% Convection contribution from water, might be important, although the assumption is that air flow is more relevant. 
+
+% Temperature water + soil, and air temeprature different 
+
+% Edrizzi is not sure about Darcy for gas phase
+% Fluxes from summer and winter is 3D, exactly as the water
+
+% Suction is not considered for air, that means only positive pressures
+% It is a function of air temperature. Air flow will be determined by temperature 
+
+
+% Add another equation plus gas temperature
+% Global energy equation, that temperature is also used for changes at the surface, it is the most important, the solid temperature
+
+% Water and solid temperature are the same
+% 
+% How do you express energy changes between phases ?
+% GZ: similar to ficks law 
+
+% Energy, is solved 1D, only vertical gradients, it may be important lateral changes 
+% Lateral interchanges is used in richards equation
+
+% Energy balance is 1D or 3D ?    
+% At the surface might be 3D
+% At the soil, geotop uses land surface models, 1D, only vertical due to high spatial scales.
+% Geotop does not consider that lateral fluxes for energy
+% Edrizzi thinks it is important
+% Complexity of energy equation comes from the surface
+
+% It is possible to consider uncoupled, instead of coupled.
+% Previous temperature can be used for computing lateral terms: Risk is the usage of a small time step. Depends on air flux speed. IF the flux is fast, then resolution cannot be uncoupled.
+% 
+
+% Interesting thing of geotop is coupling with surface, that is the complicated part
+% 
+% Geotop solves a linear system
+% He thinks adding a simple case adding source terms, using the temperature of the previous time step
+% Analyze validity, by introducing source terms and check how the matrix solver behaves. 
+
+% Check Rayleigh number
+
+% Temperature at surface changes at lot, but within the soil, does not change so much.
+% Air flux is within subsurface and surface
+% If snow, maybe the flux diminishes
+
+% Edrizzi: Water vapor it is important also within the snow
+
+% Negative pressure fwould be the difference between airbalance v/s waterbalance.
+
+% Seasonaly frozen soil.  
+  
+
